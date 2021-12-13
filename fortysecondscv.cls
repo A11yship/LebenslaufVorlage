@@ -706,9 +706,19 @@
 % tabular starred version adds space to make table as wide as \textwidth here
 \newenvironment{cvtable}[1][1]{%
 	\renewcommand{\arraystretch}{#1}%
-	\begin{longtabu} to \textwidth {@{\extracolsep{\fill}}ll}%
+	\iftoggle{tshowframes}{%
+		\begin{longtabu} to \textwidth {@{\extracolsep{\fill}}|l|l|}%
+		\hline%
+	}{%
+		\begin{longtabu} to \textwidth {@{\extracolsep{\fill}}ll}%
+	}
 }{%
-	\end{longtabu}%
+	\iftoggle{tshowframes}{%
+		\hline%
+		\end{longtabu}%
+	}{%
+		\end{longtabu}%
+	}
 }
 
 % | <keyword>      <one-line description>            |
