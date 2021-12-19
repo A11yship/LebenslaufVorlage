@@ -706,6 +706,9 @@
 % tabular starred version adds space to make table as wide as \textwidth here
 \newenvironment{cvtable}[1][1]{%
 	\renewcommand{\arraystretch}{#1}%
+	% HACK: when tabu is placed immediately after a heading, twice the
+	% vertical paragraph space is added instead of only once
+	\vspace*{-\baselineskip} % HACK! tbr in future...
 	\iftoggle{tshowframes}{%
 		\begin{longtabu} to \textwidth {@{\extracolsep{\fill}}|l|l|}%
 		\hline%
