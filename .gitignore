@@ -8,5 +8,6 @@ tmp/*
 *synctex*
 *fls
 *out
+*.bak
 test*
 README.html
